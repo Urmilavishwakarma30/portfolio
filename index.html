@@ -1,0 +1,640 @@
+-<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'poppins',sans-serif;
+			text-decoration: none;
+			list-style: none;
+		}
+		.header{
+			position: fixed;
+			top:0;
+			left:0;
+			width:1500px;
+			padding: 45px 12px;
+			background: rgba(0, 0, 0, 0.8);
+			backdrop-filter: blur(10px);
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			z-index: 100;
+
+		}
+
+		.logo{
+			font-size: 28px;
+			color:white;
+			font-weight: 600;
+			transition:0.3s ease;
+		}
+
+		.logo:hover{
+			color: orange;
+			text-shadow: 0 0 25px orangered, 0 0 50px orangered;
+			transform: scale(1.1);
+
+		}
+		span{
+			color:orangered;
+		}
+
+		.navbar a{
+			font-size: 25px;
+			color: white;
+			font-weight: 500px;
+			margin: 0 20px;
+			border-bottom: 3px solid transparent;
+			transition:0.3s ease;
+			
+		}
+		.navbar a:hover,
+		.navbar a.active{
+			color:  #4070f4;
+			border-bottom: 3px solid  #4070f4;
+
+		}
+		.contact{
+			padding:10px 28px;
+			background-color: white;
+			color: black;
+			border: 2px solid transparent;
+			border-radius:8px ;
+			font-size: 25px;
+			letter-spacing: 1px;
+			font-weight: 600px;
+			transition: 0.3s ease;
+
+
+		}
+
+		.contact:hover{
+			background-color:  #4070f4;
+			box-shadow: 0 0 25px orangered;
+			color: white;
+		}
+
+		.home{
+			width:600px;
+			min-height: 100px;
+			background: rgb( 241, 241, 241);
+			display: flex;
+			align-items: center;
+			gap: 7em;
+			padding: 30px 12px 0;
+
+		}
+		.home-content{
+			max-width: 1500px;
+			margin-top: 150px;
+			text-align: center;
+			align-items: center;
+			position: relative;
+
+
+		}
+		.home-content h3{
+			font-size: 48px;
+			margin-top: 100px;
+		}
+
+		.home-content h2{
+			font-size: 30px;
+			
+		}
+
+		.home-content p{
+			font-size: 20px;
+			margin: 25px 0 30px;
+		}
+		.btn-box{
+			margin-bottom: 20px;
+			margin-left: 70px;
+			align-items: center;
+			
+			width: 500px;
+			display: flex;
+			gap:2em;
+		}
+		.img-box{
+
+			margin-left: 600px;
+			top:150px;
+			border:1px black;
+			position: absolute;
+			border-radius: 600px;
+		}
+
+		.img-box img{
+			position: relative;
+			cursor: pointer;
+			border: 2px solid orangered;
+			transition:0.4s ease-in-out;
+			box-shadow: 0 0 25px ;
+		}
+		.img-box :hover{
+			box-shadow: 0 0 25px  orangered;
+		}
+
+		.btn-1{
+			padding:15px 28px;
+			background-color: black;
+			color:white;
+			border:2px solid transparent;
+			border-radius: 8px;
+			font-size: 18px;
+			letter-spacing: 1px;
+			font-weight: 600px;
+			transition: 0.3s ease;
+			cursor: pointer;
+		}
+		.btn-1:hover{
+			background-color:  #4070f4;
+			color: black;
+			border: 2px solid black;
+		}
+		.btn-2{
+			padding:15px 28px;
+			background-color: black;
+			color:white;
+			border:2px solid transparent;
+			border-radius: 8px;
+			font-size: 18px;
+			letter-spacing: 1px;
+			font-weight: 600px;
+			transition: 0.3s ease;
+			cursor: pointer;
+		}
+		.btn-2:hover{
+			border: 2px solid black;
+			background-color:  #4070f4;
+			
+		}
+		.img-box img{
+			border-radius: 400px;
+			width: 500px;
+			margin-left: 250px;
+			margin-bottom: 60px;
+
+		}
+		::-webkit-scrollbar{
+			width: 40px;
+		}
+		::-webkit-scrollbar-thumb{
+			background-color: orangered;
+		}
+		::-webkit-scrollbar-track{
+			background-color: rgba(0, 0, 0, 0.6);
+			width: 30px;
+		}
+		
+		.about{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding:12px 8px;
+			gap:10em;
+			background: black;
+			margin-top: 400px;
+			padding-top: 80px;
+
+		}
+
+		
+
+		
+		.about-content h2{
+			text-align: left;
+			
+			font-size:42px;
+			margin-left: 600px;
+
+		}
+		.about-content h3{
+			font-size: 63px;
+			
+			margin-left: 600px;
+		}
+		.about-content p{
+			
+			font-size: 25px;
+			margin: 2em 0 3em;
+			margin-left: 600px;
+			height: 60px;
+		}
+		.btn-3{
+			padding: 15px 28px;
+			background-color:  #4070f4;
+			color:white;
+			border:2px solid transparent;
+			border-radius: 8px;
+			font-size: 18px;
+			letter-spacing: 1px;
+			font-weight: 600px;
+			transition: 0.3s ease;
+			cursor: pointer;
+			margin-left: 600px;
+			margin-right: 500px;
+			margin-top: 100px;
+
+			
+		}
+
+
+		.btn-3:hover{
+			border: 2px solid  #4070f4;
+			background-color:  #4070f4;
+			color: black;
+		}
+
+		
+
+		.contact-form h2{
+			text-align: center;
+			margin-top: 3em;
+			margin-bottom: 1em;
+			font-size: 36px;
+
+		}
+		.contact-form form{
+			max-width: 400em;
+			margin: 1rem auto;
+			text-align: center;
+			margin-bottom: 3em;
+		}
+		.contact-form form .input-box input,
+		.contact-form form textarea{
+			width: 400px;
+			padding: 1.5em;
+			font-size: 18px;
+			color:black;
+			background: rgb(241, 241, 241);
+		}
+
+		.footer{
+			width: 900px;
+			text-align: center;
+		}
+
+		.about-content .heading{
+			margin-top: 300px;
+		}
+		.context img{
+			position: absolute;
+			align-items: center;
+			text-align: center;
+			margin-bottom: 800px;
+			border-radius: 200px;
+			border: 2px solid orangered;
+		 transition:0.4s ease-in-out;
+		 cursor: pointer;
+		 box-shadow: 0 0 28px;
+
+		}
+		.footer.social a{
+			font-size: 25px;
+			color: white;
+			font-weight: 500px;
+			margin: 0 20px;
+			border-bottom: 3px solid transparent;
+			transition:0.3s ease;
+			
+
+		}
+		.list li a{
+			display: inline-block;
+			align-items: center;
+
+			font-size: 25px;
+			color: black;
+			font-weight: 500px;
+			margin: 0 20px;
+			border-bottom: 3px solid orangered;
+			transition:0.3s ease;
+
+		}
+		.list li{
+			display: inline-block;
+			align-items: center;
+			grid-gap: 20px;
+	
+			
+		}
+
+
+
+
+		.heading{
+			font-size: 35px;
+			text-align: center;
+			margin: 8rem;
+		}
+
+		/*.education{
+			padding: 100px 15px;
+			background: var(..second-bg-color);
+		}*/
+		.education h2{
+			margin-bottom: 5rem;
+		}
+		.timeline-items{
+			max-width: 1200px;
+			maergin:auto;
+			display: flex;
+			flex-wrap: wrap;
+			position: relative;
+		}
+		/*.timeline-items::before{
+			content: "";
+			position: absolute;
+			width:5px;
+			height: 50px;
+			background: var(..main-color);
+			left:calc(50% - 1px);
+		}*/
+		.timeline-item{
+			margin-bottom: 50px;
+			width:300px;
+			position: relative;
+
+		}
+		.timeline-item:last-child{
+			margin-bottom: 0;
+		}
+	
+		/*.timeline-dot{
+			height: 5px;
+			width: 15px;
+			background-color: var(..main-color);
+			box-shadow:0 0 25px var(..main-color),
+			0 0 50px var(..main-color);
+			position: absolute;
+			left:calc(50% - 8px);
+			border-radius: 50%;
+			top:10px;
+
+		}*/
+
+
+
+
+
+    /* about  */
+     *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto',sans-serif;
+
+
+    }
+    .about-us{
+      width: 100%;
+      height: 100%;
+      padding-top: 200px;
+      background: #ddd;
+
+    }.pic{
+      height: auto;
+      width: 400px;
+      height: 550px;
+      border: dotted;
+       
+    }
+    .text{
+      width: 540px;
+    }
+    .text h2{
+      font-size: 60px;
+      font-weight: 600px;
+      margin-bottom: 10px;
+    }
+    .text h5{
+      font-size: 22px;
+      font-weight: 500px;
+      margin-bottom: 20px;
+    }
+    .text p{
+      font-size: 18px;
+      line-height:25px;
+      letter-spacing: 1px;
+    }
+    .about{
+      width: 1130px;
+      max-width: 85%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .link{
+      margin-top: 30px;
+
+    }
+    .hire{
+      text-decoration: none;
+      font-size: 18px;
+      color: #fff;
+      background: #4070f4;
+      padding: 8px 25px;
+      border-radius: 6px;
+      border: none;
+      transition: 0.5s;
+    }
+    .hire:hover{
+      background: #000;
+    }
+    span{
+      color: #4070f4;
+    }
+    .h{
+    	text-decoration: none;
+    	color:pink;
+    }
+	
+		
+
+
+		
+
+
+		
+
+
+
+
+
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+	</style>
+</head>
+<body>
+	<header class="header">
+
+		<a href="#" class="logo"><i class='bx bxs-heart'></i><span>Khu</span>shi</a>
+		
+
+		<nav class="navbar">
+			<a href="about.html">About</a>
+			<a href="#" class="active"> Portfolio</a></li>
+			<a href="#">Service</a>
+			<a href="#">Experience</a>
+			<a href="project2.html">Projects</a>
+			<a href="#">Education</a>
+			<a href="contact.html">Contact</a>
+		</nav>
+
+		<a href="#" class="contact">Contact Me</a>
+	</header>
+
+	<section class="home">
+		<div class="home-content">
+			<h3> <i class='bx bx-upside-down'></i>  Hi</h3>
+
+			<h2>I'm <span>Khushi<br> </span> a Frontend Developer</h2>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do <br>eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.<br> Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris <br>nisi ut aliquip ex ea commodo
+			consequat.</p><br>
+
+			<div class="btn-box">
+				<button class="btn-1"> Hire Me</button>
+				<button class="btn-2">Experience</button>
+			</div>
+
+			
+		</section>
+
+		<div class="img-box">
+				
+				<img src="photo.jpg" alt="" width="620" height="500">
+			</div>
+
+
+
+
+
+			<section>
+			<div class="about-content">
+
+				<div class="context">
+				
+				<img src="photo.jpg" alt="" width="400" height="400">
+			</div>
+				<h2 class="heading">About <span>Me</span></h2>
+
+				<h3>Frontend <span>Developer</span></h3>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.<br> Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in <br>reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia <br>deserunt mollit anim id est laborum.</p><br>
+				
+
+
+				<div>
+					<button class="btn-3">Experience</button>
+				</div>
+
+			</section>
+			
+			
+
+	
+
+	<section class="contact-form">
+		<h2 class="contact-me">Contact <span>Me</span></h2>
+
+		<form action="#">
+
+			<div class="input-box">
+				<input type="text" placeholder="Full Name"><br>
+				<input type="email" name="" placeholder="Email"><br>
+				
+			</div>
+
+			<div class="input-box">
+				<input type="number" name="" placeholder="Phone Number"><br>
+				<input type="text" name="" placeholder="Subject"><br>
+			</div>
+
+			<textarea name="" id="" cols="30px" rows="10" placeholder="Your Message"></textarea><br>
+			<input type="Submit" name="" value="Send Message" class="btn-1"><br>
+
+			
+		</form>
+		
+	</section>
+
+	
+
+
+
+
+	<section class="about-us"></section>
+  <div class="about">
+    <img src="photo.jpg" class="pic" width="800px" height="800px">
+    <div class="text">
+      <h2 class="h">About Us</h2>
+      <h5 class="h">Font-end Developer &<span>Designer</span></h5>
+      <p class="h">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div class="link">
+        <a href="#" class="hire">Hire Me</a>
+        
+      </div>
+      
+    </div>
+
+  </div>
+
+
+
+	
+
+
+		
+		
+
+</body>
+
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
